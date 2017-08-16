@@ -43,11 +43,6 @@ def main():
         logger.error('HOST_HOSTNAME not set in environment')
         sys.exit(1)
 
-    # copy automation file in duffy machine
-    cmd = ("scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no /home/qemu-kvm/basic_tests.txt /home/qemu-kvm/extended_tests.txt /home/qemu-kvm/automate_setup_test.py root@"+host+":/root/")
-    logger.info(cmd)
-    rtn_code = subprocess.call(cmd, shell=True)
-
     # run test
     # cmd = "ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@%s 'yum -y install git && git clone %s tests && cd tests && chmod +x ./automate_setup_test.py && ./automate_setup_test.py'" % (h, git_url)
     logger.info("SSHing into duffy machine")
@@ -62,19 +57,6 @@ def main():
     logger.info("Copy serial output back from duffy machine")
     cmd = ("scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@" + host + ":/root/avocado/job-results/latest/test-results/1-*/serial* ./")
     code = subprocess.call(cmd, shell=True)
-
-    done_nodes_url = "%s/Node/done?key=%s&ssid=%s" % (url_base, api, b['ssid'])
-
-    logger.info('### qemu-kvm-upstream-4-teardown ###')
-    das = {}
-    try:
-        das = urllib2.urlopen(done_nodes_url).read()
-    except urllib2.URLError as e:
-        logger.error('Error in done_nodes_url=' + str(e.reason))
-        sys.exit(1)
-
-    sys.exit(rtn_code)
-
 
 if __name__ == '__main__':
     sys.exit(main())
