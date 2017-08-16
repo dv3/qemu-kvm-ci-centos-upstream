@@ -46,7 +46,7 @@ def main():
     # run test
     # cmd = "ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@%s 'yum -y install git && git clone %s tests && cd tests && chmod +x ./automate_setup_test.py && ./automate_setup_test.py'" % (h, git_url)
     logger.info("SSHing into duffy machine")
-    cmd = ("ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@"+host+" 'yum -y install git && git clone "+git_url+" && cd tests && chmod +x ./automate_setup_test.py && ./automate_setup_test.py'")
+    cmd = ("ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@"+host+" 'yum -y install git && git clone "+git_url+" && cd qemu-kvm-ci-upstream && chmod +x ./automate_setup_test.py && ./automate_setup_test.py'")
     logger.info(cmd)
     rtn_code = subprocess.call(cmd, shell=True)
 
