@@ -95,11 +95,11 @@ def main():
 
         log_zip_name = os.environ.get('BUILD_TAG')
         d_date = datetime.datetime.now()
-        timestamp = d_date.strftime("%Y-%m-%dT%H:%M:%S")
+        timestamp = d_date.strftime("%Y-%m-%dT%H-%M-%S")
         log_zip_name = log_zip_name + '_'+timestamp+'.tar.gz'
 
         logger.info("Zip log folder in duffy machine")
-        cmd = ("ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@"+host+" 'yum -y install tar && tar -cvzf /root/"+log_zip_name+" /root/avocado/job-results/latest/*'")
+        cmd = ("ssh -t -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@"+host+" 'yum -y install tar && tar -cvzf /root/"+log_zip_name+" /root/avocado/job-results/*'")
         code = subprocess.call(cmd, shell=True)
 
         logger.info("Copy log zip back to Jenkin slave")
