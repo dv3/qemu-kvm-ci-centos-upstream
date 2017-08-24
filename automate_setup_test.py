@@ -186,10 +186,9 @@ def main():
         logger.info('Run Avocado extended tests:\n'+str(cmd_avocado_extended_test))
         # call_subprocess(cmd_avocado_extended_test)
         rtn_code = subprocess.call(cmd_avocado_extended_test, shell=True)
-
-    cmd_grep_error = ("grep 'ERROR| ERROR\|ERROR| FAIL' /root/avocado/job-results/latest/job.log")
-    logger.info('Grep error from job.log file:\n' + str(cmd_grep_error))
-    call_subprocess(cmd_grep_error)
+        cmd_grep_error = ("grep 'ERROR| ERROR\|ERROR| FAIL' /root/avocado/job-results/latest/job.log")
+        logger.info('Grep error from latest job.log file:\n' + str(cmd_grep_error))
+        call_subprocess(cmd_grep_error)
 
 if __name__ == '__main__':
     sys.exit(main())
