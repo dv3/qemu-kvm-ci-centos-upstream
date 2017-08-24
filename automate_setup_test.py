@@ -188,7 +188,7 @@ def main():
         rtn_code = subprocess.call(cmd_avocado_extended_test, shell=True)
         cmd_grep_error = ("grep 'ERROR| ERROR\|ERROR| FAIL' /root/avocado/job-results/latest/job.log")
         logger.info('Grep error from latest job.log file:\n' + str(cmd_grep_error))
-        call_subprocess(cmd_grep_error)
+        code = subprocess.call(cmd_grep_error, shell=True)
 
 if __name__ == '__main__':
     sys.exit(main())
