@@ -1,0 +1,5 @@
+boot
+reboot
+migrate.default.tcp
+physical_resources_check
+shutdown

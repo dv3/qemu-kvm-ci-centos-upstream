@@ -1,0 +1,31 @@
+io-github-autotest-qemu.autotest.monotonic_time
+io-github-autotest-qemu.autotest.hwclock
+io-github-autotest-qemu.autotest.rtc
+io-github-autotest-qemu.autotest.cpu_hotplug
+io-github-autotest-qemu.autotest.npb
+io-github-autotest-qemu.clock_getres
+type_specific.io-github-autotest-qemu.getfd
+io-github-autotest-qemu.ioquit
+type_specific.io-github-autotest-qemu.balloon_check
+io-github-autotest-qemu.nic_promisc
+io-github-autotest-qemu.ping.default_ping
+type_specific.io-github-autotest-qemu.qemu_img.commit
+io-github-autotest-qemu.stop_continue.stop_cont_only
+type_specific.io-github-autotest-qemu.system_powerdown
+type_specific.io-github-autotest-qemu.system_reset
+type_specific.io-github-autotest-qemu.smbios_table.type0
+type_specific.io-github-autotest-qemu.smbios_table.type1
+type_specific.io-github-autotest-qemu.smbios_table.type0and1
+type_specific.io-github-autotest-qemu.smbios_table.machine_type
+type_specific.io-github-autotest-qemu.floppy_test
+io-github-autotest-qemu.timedrift.with_pvclock.shared_ntp_date.date.with_load.default_load --vt-extra-params time_command='ntpdate -dq 0.pool.ntp.org'
+io-github-autotest-qemu.jumbo --vt-extra-params 'nettype=bridge'
+io-github-autotest-qemu.mac_change.defalut_ctrl_mac_addr.down_change --vt-extra-params 'nettype=bridge'
+io-github-autotest-qemu.mac_change.defalut_ctrl_mac_addr.up_change --vt-extra-params 'nettype=bridge'
+io-github-autotest-qemu.netstress_kill_guest.load --vt-extra-params 'nettype=bridge'
+io-github-autotest-qemu.netstress_kill_guest.driver --vt-extra-params 'nettype=bridge'
+type_specific.io-github-autotest-qemu.nic_hotplug.vhost_nic.nic_virtio --vt-extra-params 'nettype=bridge'
+io-github-autotest-qemu.vlan.vlan_connective_test --vt-extra-params 'nettype=bridge'
+io-github-autotest-qemu.vlan.vlan_scalability_test --vt-extra-params 'nettype=bridge'
+type_specific.io-github-autotest-qemu.migrate.with_file_transfer.tcp --vt-extra-params 'mem=4096'
+io-github-autotest-qemu.file_transfer.default_setting --vt-extra-params 'tmp_dir=/var/tmp' 'filesize=1000'
