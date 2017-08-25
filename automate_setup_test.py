@@ -103,7 +103,7 @@ def main():
                                    "yum -y install wget curl python-pip PyYAML tcpdump python-requests libvirt-python python-sphinx libvirt-devel gstreamer-python "
                                    "gdb gdb-gdbserver python-imaging bridge-utils git python-devel cryptsetup gcc gcc-c++ "
                                    "libvirt* p7zip python2-simplejson policycoreutils-python attr genisoimage mkisofs glibc-devel glib2-devel "
-                                   "sg3_utils hdparm net-tools automake autoconf pkgconfig make SDL-devel libtool texinfo zlib zlib-devel openssl-devel && "
+                                   "sg3_utils hdparm net-tools automake autoconf pkgconfig make SDL-devel libtool texinfo zlib zlib-devel openssl-devel ntpdate && "
                                    "systemctl start libvirtd")
     logger.info('Installing Qemu & prerequisites:\n'+str(cmd_install_qemu_dependency))
     call_subprocess(cmd_install_qemu_dependency)
